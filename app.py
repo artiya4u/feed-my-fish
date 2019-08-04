@@ -34,7 +34,7 @@ def feed():
         return {'message': 'Got it! Please wait about 15 minutes for IFTTT feeder response'}
     else:
         wait = full_period - period
-        return {'message': 'My fish is full!, please wait for {:d} secs'.format(wait)}
+        return {'message': 'My fish is full!, please wait for {:.0f} seconds'.format(wait)}
 
 
 if __name__ == '__main__':

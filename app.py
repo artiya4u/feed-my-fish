@@ -33,7 +33,8 @@ def feed():
         last_time = ts
         return {'message': 'Got it! Please wait about 15 minutes for IFTTT feeder response'}
     else:
-        return {'message': 'My fish is full!, please wait for hours'}
+        wait = full_period - period
+        return {'message': 'My fish is full!, please wait for {:d} secs'.format(wait)}
 
 
 if __name__ == '__main__':

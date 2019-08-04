@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        function feed() {
+            let data = null;
+            let xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === this.DONE) {
+                    $('.alert').text(JSON.parse(this.responseText).message);
+                    $('.alert').removeClass('invisible');
+                    setTimeout(function () {
+                        $('.alert').addClass('invisible');
+                    }, 3000);
+                }
+            });
+
+            xhr.open("GET", "/feed");
+            xhr.setRequestHeader("apikey", "161ACJPBNK4876531");
+
+            xhr.send(data);
+        }
+    </script>
+    <title>Feed my fish!</title>
+</head>
+<body>
+<div class="container">
+    <h1>Feed My fish</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <iframe width="100%" height="600" src="https://www.youtube.com/embed/RjVNmawWYgA?autoplay=1" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary" onclick="feed()" data-dismiss="alert">FEED IT NOW!!!</button>
+        </div>
+
+    </div>
+    <br>
+    <div class="alert alert-info invisible" role="alert">
+    </div>
+    <hr>
+    <footer>
+        <div class="row">
+            <div class="col-md-4">
+                <p>Copyright &copy; 2019 Artiya T.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
